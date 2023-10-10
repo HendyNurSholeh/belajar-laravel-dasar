@@ -2,6 +2,7 @@
 
 namespace Tests\Unit;
 
+use Illuminate\Support\Env;
 use PHPUnit\Framework\TestCase;
 
 class ProdukTest extends TestCase
@@ -16,7 +17,4 @@ class ProdukTest extends TestCase
         $this->assertTrue(true);
     }
 
-    public function testContoh(){
-        $this->assertTrue(false);
-    }
 }
