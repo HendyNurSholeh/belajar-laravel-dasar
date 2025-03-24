@@ -17,4 +17,9 @@ class URLGenerationTest extends TestCase
             ->assertStatus(200)
             ->assertSee("http://localhost/hendy");
     }
+
+    public function testAction(){
+        $this->get("/url/action")
+            ->assertSee("hello action");
+    }
 }

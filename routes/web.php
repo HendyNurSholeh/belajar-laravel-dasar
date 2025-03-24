@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ActionController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\URL;
 
@@ -54,3 +55,8 @@ Route::get("/url/current", function(){
 Route::get("/redirect", function(){
     return route('hendy');
 });
+
+// url action
+Route::get("/url/action", function(){
+    return action([ActionController::class, 'index'], []);
+})->name("action");
