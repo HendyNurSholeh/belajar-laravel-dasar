@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\URL;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,10 +17,16 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/', function () {
+    return view('welcome');
+});
+Route::get('/1', function () {
+    return view('1');
+});
 
 Route::get("/hendy", function(){
     return "<h1>Hendy Ganteng</h1>";
-});
+})->name("hendy");
 
 Route::view("/hello", "hello", ["name"=>"hendy"]);
 
@@ -37,4 +44,13 @@ Route::redirect("/ganteng", "/hendy");
 
 Route::fallback(function(){
     return "404 Halaman tidak ditemukan!";
+});
+
+Route::get("/url/current", function(){
+    return URL::full();
+});
+
+// redirect route named
+Route::get("/redirect", function(){
+    return route('hendy');
 });
